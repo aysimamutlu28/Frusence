@@ -10,8 +10,8 @@ workflows:
         bundle_identifier: com.fatihged
       vars:
         BUNDLE_ID: "com.fatihged"
-        XCODE_PROJECT: "Fruit.xcodeproj" # Убедитесь, что имя проекта указано правильно
-        XCODE_SCHEME: "Fruit" # Убедитесь, что имя схемы указано правильно
+        XCODE_PROJECT: "Frusence.xcodeproj" # Убедитесь, что имя проекта указано правильно
+        XCODE_SCHEME: "Frusence" # Убедитесь, что имя схемы указано правильно
         APP_STORE_APPLE_ID: 6744028522
         TEAM_ID: "42Q9S94KL6"  # Ваш Team ID
       xcode: 16.0
