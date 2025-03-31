@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "logInMain.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
