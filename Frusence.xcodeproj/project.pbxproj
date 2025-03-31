@@ -12,16 +12,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		302F6FCB2D91C08400E2C010 /* Fruit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fruit.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		302F6FCB2D91C08400E2C010 /* Frusence.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Frusence.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		3027075B2D943E3300E49E06 /* Exceptions for "Fruit" folder in "Fruit" target */ = {
+		3027075B2D943E3300E49E06 /* Exceptions for "Fruit" folder in "Frusence" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 302F6FCA2D91C08400E2C010 /* Fruit */;
+			target = 302F6FCA2D91C08400E2C010 /* Frusence */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -29,7 +29,7 @@
 		302F6FCD2D91C08400E2C010 /* Fruit */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				3027075B2D943E3300E49E06 /* Exceptions for "Fruit" folder in "Fruit" target */,
+				3027075B2D943E3300E49E06 /* Exceptions for "Fruit" folder in "Frusence" target */,
 			);
 			path = Fruit;
 			sourceTree = "<group>";
@@ -60,7 +60,7 @@
 		302F6FCC2D91C08400E2C010 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				302F6FCB2D91C08400E2C010 /* Fruit.app */,
+				302F6FCB2D91C08400E2C010 /* Frusence.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,9 +68,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		302F6FCA2D91C08400E2C010 /* Fruit */ = {
+		302F6FCA2D91C08400E2C010 /* Frusence */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 302F6FDE2D91C08600E2C010 /* Build configuration list for PBXNativeTarget "Fruit" */;
+			buildConfigurationList = 302F6FDE2D91C08600E2C010 /* Build configuration list for PBXNativeTarget "Frusence" */;
 			buildPhases = (
 				302F6FC72D91C08400E2C010 /* Sources */,
 				302F6FC82D91C08400E2C010 /* Frameworks */,
@@ -83,13 +83,13 @@
 			fileSystemSynchronizedGroups = (
 				302F6FCD2D91C08400E2C010 /* Fruit */,
 			);
-			name = Fruit;
+			name = Frusence;
 			packageProductDependencies = (
 				30C6B3E42D9A95480035033F /* FirebaseAuth */,
 				30C6B3E62D9A95480035033F /* FirebaseCore */,
 			);
 			productName = Fruit;
-			productReference = 302F6FCB2D91C08400E2C010 /* Fruit.app */;
+			productReference = 302F6FCB2D91C08400E2C010 /* Frusence.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -107,7 +107,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 302F6FC62D91C08400E2C010 /* Build configuration list for PBXProject "Fruit" */;
+			buildConfigurationList = 302F6FC62D91C08400E2C010 /* Build configuration list for PBXProject "Frusence" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -124,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				302F6FCA2D91C08400E2C010 /* Fruit */,
+				302F6FCA2D91C08400E2C010 /* Frusence */,
 			);
 		};
 /* End PBXProject section */
@@ -277,10 +277,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fruit/Preview Content\"";
-				DEVELOPMENT_TEAM = 54C7PA6695;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fruit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Frusence;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access to the camera is required to recognize fruit";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -291,7 +293,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fruitttkj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatihged;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -311,10 +313,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Fruit/Preview Content\"";
-				DEVELOPMENT_TEAM = 54C7PA6695;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Fruit/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Frusence;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Access to the camera is required to recognize fruit";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -325,7 +329,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fruitttkj;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fatihged;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -340,7 +344,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		302F6FC62D91C08400E2C010 /* Build configuration list for PBXProject "Fruit" */ = {
+		302F6FC62D91C08400E2C010 /* Build configuration list for PBXProject "Frusence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				302F6FDC2D91C08600E2C010 /* Debug */,
@@ -349,7 +353,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		302F6FDE2D91C08600E2C010 /* Build configuration list for PBXNativeTarget "Fruit" */ = {
+		302F6FDE2D91C08600E2C010 /* Build configuration list for PBXNativeTarget "Frusence" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				302F6FDF2D91C08600E2C010 /* Debug */,
