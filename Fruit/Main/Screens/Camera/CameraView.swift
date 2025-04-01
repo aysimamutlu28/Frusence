@@ -65,7 +65,7 @@ struct CameraView: View {
                                     .frame(width: 60, height: 60)
                             )
                     }
-                    .padding(.bottom, 160)
+                    .padding(.bottom, 180)
                     .withDefaultShadow()
                 }
             }
