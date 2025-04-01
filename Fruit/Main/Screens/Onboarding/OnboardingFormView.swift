@@ -35,6 +35,7 @@ struct OnboardingFormView: View {
                             .appFont(.clashDisplay, size: AppFontSize.motivation)
                             .foregroundColor(.milkColor)
                             .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         VStack(spacing: 15) {
                             HStack(spacing: 15) {
@@ -61,6 +62,7 @@ struct OnboardingFormView: View {
                             .appFont(.clashDisplay, size: AppFontSize.motivation)
                             .foregroundColor(.milkColor)
                             .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         HStack(spacing: 15) {
                             yesNoButton(option: 1, forPage: 2) {
@@ -83,6 +85,7 @@ struct OnboardingFormView: View {
                             .appFont(.clashDisplay, size: AppFontSize.motivation)
                             .foregroundColor(.milkColor)
                             .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         HStack(spacing: 15) {
                             yesNoButton(option: 1, forPage: 3) {
@@ -105,6 +108,7 @@ struct OnboardingFormView: View {
                             .appFont(.clashDisplay, size: AppFontSize.motivation)
                             .foregroundColor(.milkColor)
                             .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         HStack(spacing: 15) {
                             yesNoButton(option: 1, forPage: 4) {
@@ -127,6 +131,7 @@ struct OnboardingFormView: View {
                             .appFont(.clashDisplay, size: AppFontSize.motivation)
                             .foregroundColor(.milkColor)
                             .multilineTextAlignment(.leading)
+                            .fixedSize(horizontal: false, vertical: true)
                         
                         HStack(spacing: 15) {
                             yesNoButton(option: 1, forPage: 5) {
