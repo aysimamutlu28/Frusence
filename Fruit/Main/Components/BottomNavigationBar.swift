@@ -33,9 +33,9 @@ struct BottomNavigationBar: View {
             ZStack(alignment: .top) {
                 // Background with rounded top corners
                 RoundedCornerShape(corners: [.topLeft, .topRight], radius: 40)
-                    .fill(Color(red: 71/255, green: 9/255, blue: 110/255)) // rgba(71, 9, 110, 1)
-                    .frame(height: 130)
-                    .ignoresSafeArea(edges: .bottom)
+                    .fill(Color(red: 71/255, green: 9/255, blue: 110/255))
+                    .frame(height: 130 + (UIApplication.shared.windows.first?.safeAreaInsets.bottom ?? 0))
+                    .ignoresSafeArea()
                 
                 // Navigation buttons evenly distributed by width and raised up
                 GeometryReader { geometry in
@@ -44,12 +44,11 @@ struct BottomNavigationBar: View {
                         tabButtonContainer(for: .savedRecipes, width: geometry.size.width / 2, height: geometry.size.height)
                     }
                     .frame(height: geometry.size.height)
-                    .offset(y: 0) // Position at the top of container
                 }
                 .frame(height: 105)
             }
         }
-        .ignoresSafeArea(edges: .bottom)
+        .ignoresSafeArea()
     }
     
     @ViewBuilder

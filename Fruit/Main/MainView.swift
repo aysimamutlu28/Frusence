@@ -18,61 +18,40 @@ struct MainView: View {
     
     var body: some View {
         ZStack {
+            let window = UIApplication.shared.windows.first
+            let bottomInset = window?.safeAreaInsets.bottom ?? 0
+            
             Image("background")
                 .resizable()
                 .aspectRatio(contentMode: .fill)
-                .ignoresSafeArea(.all)
+                .frame(
+                    width: UIScreen.main.bounds.width,
+                    height: UIScreen.main.bounds.height + bottomInset
+                )
+                .ignoresSafeArea()
             
-            Group {
-                if selectedTab == .camera {
-                    CameraView(
-                        ingredientsViewModel: ingredientsViewModel,
-                        showIngredients: $showIngredients,
-                        selectedTab: $selectedTab
-                    )
-                    .transition(.opacity)
-                    .sheet(isPresented: $showIngredients) {
-                        ZStack {
-                            IngredientsView(viewModel: ingredientsViewModel)
-                                .background(
-                                    Image("background")
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fill)
-                                        .ignoresSafeArea()
-                                )
-                            
-                            VStack {
-                                Spacer()
-                                BottomNavigationBar(selectedTab: Binding(
-                                    get: { selectedTab },
-                                    set: { newTab in
-                                        if newTab != selectedTab {
-                                            if newTab == .savedRecipes {
-                                                showIngredients = false
-                                                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-                                                    selectedTab = newTab
-                                                }
-                                            } else {
-                                                selectedTab = newTab
-                                            }
-                                        }
-                                    }
-                                ))
-                            }
-                        }
-                    }
-                } else {
-                    SavedRecipesView(ingredientsViewModel: ingredientsViewModel)
-                        .transition(.opacity)
+            if selectedTab == .camera {
+                CameraView(
+                    ingredientsViewModel: ingredientsViewModel,
+                    showIngredients: $showIngredients,
+                    selectedTab: $selectedTab
+                )
+                .transition(.opacity)
+                .sheet(isPresented: $showIngredients) {
+                    IngredientsView(viewModel: ingredientsViewModel)
+                        .background(
+                            Image("background")
+                                .resizable()
+                                .aspectRatio(contentMode: .fill)
+                                .ignoresSafeArea()
+                        )
                 }
-            }
-            
-            // Bottom menu for fullscreen mode
-            if !showIngredients {
-                VStack {
-                    Spacer()
-                    BottomNavigationBar(selectedTab: $selectedTab)
-                }
+            } else {
+                SavedRecipesView(
+                    ingredientsViewModel: ingredientsViewModel,
+                    selectedTab: $selectedTab
+                )
+                .transition(.opacity)
             }
         }
     }
