@@ -4,42 +4,48 @@ struct RegistrationView: View {
     @StateObject var viewModel: RegistrationViewModel
     
     var body: some View {
-        ZStack {
-            VStack {
-                Text("Registration")
-                    .appFont(.funnelBold, size: AppFontSize.title)
-                    .foregroundColor(.pinkColor)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.top, 30)
-                
-                Rectangle()
-                    .fill(Color(red: 111/255, green: 28/255, blue: 157/255, opacity: 1))
-                    .frame(height: 1)
-                
-                if let errorMessage = viewModel.errorMessage {
-                    Text(errorMessage)
-                        .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                        .foregroundColor(.red)
-                        .padding(.horizontal)
-                        .padding(.top, 5)
-                }
-                
-                Spacer()
-                
-                VStack(spacing: 15) {
-                    TextField("", text: $viewModel.name)
-                        .placeholder(when: viewModel.name.isEmpty) {
-                            Text("Name")
-                                .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                                .foregroundColor(.gray)
-                        }
-                        .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                        .padding()
-                        .background(Color.milkColor)
-                        .cornerRadius(20)
-                        .padding(.horizontal)
+        GeometryReader { geometry in
+            // Calculate proportional height for text fields
+            let textFieldHeight = geometry.size.height * 0.06 // Adjust multiplier as needed
+            
+            ZStack {
+                VStack {
+                    Text("Registration")
+                        .appFont(.funnelBold, size: AppFontSize.title)
+                        .foregroundColor(.pinkColor)
+                        .frame(maxWidth: .infinity, alignment: .center)
+                        .padding(.top, 40)
                     
+                    Rectangle()
+                        .fill(Color(red: 111/255, green: 28/255, blue: 157/255, opacity: 1))
+                        .frame(height: 1)
                     
+                    if let errorMessage = viewModel.errorMessage {
+                        Text(errorMessage)
+                            .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                            .foregroundColor(.red)
+                            .padding(.horizontal)
+                            .padding(.top, 5)
+                    }
+                    
+                    Spacer(minLength: 10)
+                    
+                    VStack(spacing: 15) {
+                        TextField("", text: $viewModel.name)
+                            .placeholder(when: viewModel.name.isEmpty) {
+                                Text("Name")
+                                    .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                                    .foregroundColor(.gray)
+                            }
+                            .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                            // Remove vertical padding, apply calculated height
+                            .padding(.horizontal) // Padding for text inside
+                            .frame(height: textFieldHeight) // Set adaptive height
+                            .background(Color.milkColor)
+                            .cornerRadius(20)
+                            .padding(.horizontal) // Padding for the field itself
+                        
+                        
                         TextField("", text: $viewModel.email)
                             .placeholder(when: viewModel.email.isEmpty) {
                                 Text("Email")
@@ -47,93 +53,112 @@ struct RegistrationView: View {
                                     .foregroundColor(.gray)
                             }
                             .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                            .padding()
+                            // Remove vertical padding, apply calculated height
+                            .padding(.horizontal) // Padding for text inside
+                            .frame(height: textFieldHeight) // Set adaptive height
                             .background(Color.milkColor)
                             .cornerRadius(20)
-                            .padding(.horizontal)
+                            .padding(.horizontal) // Padding for the field itself
                             .keyboardType(.emailAddress)
                             .autocapitalization(.none)
+                        
+                        SecureField("", text: $viewModel.password)
+                            .placeholder(when: viewModel.password.isEmpty) {
+                                Text("Password")
+                                    .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                                    .foregroundColor(.gray)
+                            }
+                            .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                            // Remove vertical padding, apply calculated height
+                            .padding(.horizontal) // Padding for text inside
+                            .frame(height: textFieldHeight) // Set adaptive height
+                            .background(Color.milkColor)
+                            .cornerRadius(20)
+                            .padding(.horizontal) // Padding for the field itself
+                        
+                        SecureField("", text: $viewModel.confirmPassword)
+                            .placeholder(when: viewModel.confirmPassword.isEmpty) {
+                                Text("Confirm password")
+                                    .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                                    .foregroundColor(.gray)
+                            }
+                            .appFont(.funnelRegular, size: AppFontSize.placeholder)
+                            // Remove vertical padding, apply calculated height
+                            .padding(.horizontal) // Padding for text inside
+                            .frame(height: textFieldHeight) // Set adaptive height
+                            .background(Color.milkColor)
+                            .cornerRadius(20)
+                            .padding(.horizontal) // Padding for the field itself
+                            .padding(.bottom)
+                    }
                     
-                    SecureField("", text: $viewModel.password)
-                        .placeholder(when: viewModel.password.isEmpty) {
-                            Text("Password")
-                                .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                                .foregroundColor(.gray)
-                        }
-                        .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                        .padding()
-                        .background(Color.milkColor)
-                        .cornerRadius(20)
-                        .padding(.horizontal)
-                    
-                    SecureField("", text: $viewModel.confirmPassword)
-                        .placeholder(when: viewModel.confirmPassword.isEmpty) {
-                            Text("Confirm password")
-                                .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                                .foregroundColor(.gray)
-                        }
-                        .appFont(.funnelRegular, size: AppFontSize.placeholder)
-                        .padding()
-                        .background(Color.milkColor)
-                        .cornerRadius(20)
-                        .padding(.horizontal)
-                        .padding(.bottom)
-                }
-                
-                Button {
-                    viewModel.createAccountTapped()
-                } label: {
-                    Image("createAnAccountMain")
-                        .resizable()
-                        .aspectRatio(contentMode: .fit)
-                        .padding(10)
-                }
-                .withDefaultShadow()
-                .disabled(viewModel.isLoading)
-                
-                Spacer()
-                
-                VStack(spacing: 0) {
                     Button {
-                        viewModel.logInTapped()
+                        viewModel.createAccountTapped()
                     } label: {
-                        Image("logIn")
+                        Image("createAnAccountMain")
                             .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding(5)
+                            .scaledToFit()
+                            .frame(maxHeight: 65)
+                            .padding(10)
                     }
                     .withDefaultShadow()
                     .disabled(viewModel.isLoading)
                     
-                    Button {
-                        viewModel.anonymousTapped()
-                    } label: {
-                        Image("anonimous")
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .padding(5)
-                            .padding(.bottom, 40)
+                    Spacer(minLength: 10)
+                    
+                    VStack(spacing: 0) {
+                        Button {
+                            viewModel.logInTapped()
+                        } label: {
+                            Image("logIn")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 65)
+                                .padding(5)
+                        }
+                        .withDefaultShadow()
+                        .disabled(viewModel.isLoading)
+                        
+                        Button {
+                            viewModel.anonymousTapped()
+                        } label: {
+                            Image("anonimous")
+                                .resizable()
+                                .scaledToFit()
+                                .frame(maxHeight: 65)
+                                .padding(5)
+                                .padding(.bottom, 40)
+                        }
+                        .withDefaultShadow()
+                        .disabled(viewModel.isLoading)
                     }
-                    .withDefaultShadow()
-                    .disabled(viewModel.isLoading)
+                    .padding(.horizontal, 5)
                 }
-                .padding(.horizontal, 5)
+                
+                if viewModel.isLoading {
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: Color.pinkColor))
+                        .scaleEffect(1.5)
+                        .background(Color.white.opacity(0.7))
+                        .frame(width: 80, height: 80)
+                        .cornerRadius(10)
+                }
             }
-            
-            if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(CircularProgressViewStyle(tint: Color.pinkColor))
-                    .scaleEffect(1.5)
-                    .background(Color.white.opacity(0.7))
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(10)
-            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
 
 struct RegistrationView_Previews: PreviewProvider {
     static var previews: some View {
-        RegistrationView(viewModel: RegistrationViewModel(coordinator: MainCoordinator()))
+        Group {
+            RegistrationView(viewModel: RegistrationViewModel(coordinator: MainCoordinator()))
+                .previewDevice("iPhone SE (3rd generation)")
+                .previewDisplayName("iPhone SE")
+
+            RegistrationView(viewModel: RegistrationViewModel(coordinator: MainCoordinator()))
+                .previewDevice("iPhone 15 Pro Max")
+                .previewDisplayName("iPhone 15 Pro Max")
+        }
     }
 }
