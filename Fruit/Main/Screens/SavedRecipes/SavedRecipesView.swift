@@ -29,6 +29,7 @@ struct SavedRecipesView: View {
                             .foregroundColor(.milkColor)
                             .appFont(.funnelRegular, size: AppFontSize.title)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                    
                         
                         Button {
                             showProfileSheet = true
@@ -39,7 +40,7 @@ struct SavedRecipesView: View {
                         }
                     }
                     .padding(.horizontal, 26)
-                    .padding(.top, geometry.safeAreaInsets.top + 20)
+                    .padding(.top, geometry.safeAreaInsets.top + 60)
                     
                     // Content
                     if viewModel.savedRecipes.isEmpty {
