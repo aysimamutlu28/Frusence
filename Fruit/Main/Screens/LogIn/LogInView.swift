@@ -10,7 +10,7 @@ struct LogInView: View {
                     .appFont(.funnelBold, size: AppFontSize.title)
                     .foregroundColor(.pinkColor)
                     .frame(maxWidth: .infinity, alignment: .center)
-                    .padding(.top, 30)
+                    .padding(.top, 40)
                 
                 Rectangle()
                     .fill(Color(red: 111/255, green: 28/255, blue: 157/255, opacity: 1))
