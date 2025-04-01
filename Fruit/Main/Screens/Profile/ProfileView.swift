@@ -17,7 +17,7 @@ struct ProfileView: View {
                     Text("Profile")
                         .appFont(.funnelBold, size: AppFontSize.title)
                         .foregroundColor(.milkColor)
-                        .padding(.top, 50)
+                        .padding(.top, 70)
                     
                     Spacer()
                     
@@ -111,7 +111,7 @@ struct ProfileView: View {
                     }
                 }
                 .padding(.horizontal, 16)
-                .padding(.bottom, 40)
+                .padding(.bottom, 100)
             }
             
             if viewModel.isLoading {
