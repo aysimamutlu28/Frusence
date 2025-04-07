@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Market logo ios 1.png",
+      "filename" : "Market logo ios.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
@@ -25,7 +25,7 @@
           "value" : "tinted"
         }
       ],
-      "filename" : "Market logo ios.png",
+      "filename" : "Market logo ios 1.png",
       "idiom" : "universal",
       "platform" : "ios",
       "size" : "1024x1024"
